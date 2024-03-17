@@ -5,6 +5,7 @@
 def merge_sort(items: list):
     """
     Sorts a list of items using the merge sort algorithm.
+
     Parameters:
         * items (list): The list of items to be sorted.
 
@@ -25,6 +26,7 @@ def merge_sort(items: list):
 def merge(left_half: list, right_half: list):
     """
     Merges two sorted lists into a single sorted list.
+
     Parameters:
         * left_half (list): The first sorted list.
         * right_half (list): The second sorted list.
@@ -48,17 +50,31 @@ def merge(left_half: list, right_half: list):
     return merged_list
 
 
-# Examples:
-if __name__ == "__main__":
+def main():
+    """ Examples """
+    from numpy.random import randint
+
+
     test_cases = [
-        [34, 19, 11, 109, 3, 56],
-        [1, 2, 3, 4, 5],
-        [5, 4, 3, 2, 1],
         [],
-        [8],
-        ["banana", "apple", "cherry", "date"]
+        [1],
+        [1, 2],
+        [2, 1],
+        [1, 2, 3, 4, 5],
+        [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+        [1, 1, 1, 1],
+        [randint(-10, 10) for _ in range(100)],
+        [1.5, -3.2, 7, 4.4, 2],
+        ["banana", "apple", "cherry", "date"],
+        ["zephyr", "zenith", "zodiac", "zombie", "zircon", "zealot",
+         "zulu", "zigzag"]
     ]
 
-    for i, test_case in enumerate(test_cases, start=1):
-        sorted_list = merge_sort(test_case)
-        print(f"Test Case {i}: {test_case} -> {sorted_list}")
+    for items in test_cases:
+        original = items.copy()  # Copy to print before sorting
+        merge_sort(items)
+        print(f"Original: {original}\nSorted  : {items}\n")
+
+
+if __name__ == "__main__":
+    main()
