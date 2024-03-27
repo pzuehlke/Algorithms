@@ -1,4 +1,6 @@
+# !/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 from numpy.random import randint
 
 
@@ -41,7 +43,7 @@ def quicksort(items: list) -> None:
 
     def partition(pivot: int, start: int, end: int) -> int:
         """
-        Partition the list around a pivot element.
+        Partition the list in-place around a pivot element.
 
         Parameters:
             * pivot (int): The index of the pivot element.
@@ -64,8 +66,8 @@ def quicksort(items: list) -> None:
 
     def quicksort_with_indices(start: int, end: int) -> None:
         """
-        Recursively sorts the sublist of `items` defined by start and end
-        indices.
+        Recursively sorts in-place the sublist of `items` defined by the given
+        initial and final indices.
 
         Parameters:
             * start (int): The start index of the sublist to sort.
